@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Document Editor</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #editor { width: 100%; height: 90vh; border: 1px solid #ccc; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Collaborative Document Editor</h1>
+    <div id="editor" contenteditable="true"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const editor = document.getElementById('editor');
+
+        // Load existing document content
+        socket.on('load-document', (content) => {
+            editor.innerText = content;
+        });
+
+        // Update document on input
+        editor.addEventListener('input', () => {
+            const content = editor.innerText;
+            socket.emit('update-document', content);
+        });
+
+        // Update editor when document changes
+        socket.on('document-updated', (content) => {
+            editor.innerText = content;
+        });
+    </script>
+</body>
+</html>
