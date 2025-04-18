@@ -17,3 +17,4 @@ To further improve collaboration, we could add features like collaborative curso
 
 In summary, building a real-time collaborative document editor using technologies like Node.js or Python with frameworks like Django or Flask, combined with either MongoDB or PostgreSQL for data storage, presents an exciting challenge that showcases the power of modern web development techniques. By leveraging real-time communication and effective data management strategies, we can create an intuitive platform that enhances productivity and fosters collaboration among users.
 # OUTPUT 
+![Image](https://github.com/user-attachments/assets/0a0db88e-8386-4b13-9ee0-6efff22b7797)
